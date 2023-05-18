@@ -1,0 +1,16 @@
+1. Creating and enhancing books to learn the basics of FastAPI
+BOOKS = [
+    {'title': "Title One", 'author': "Author One", 'category': "science"},
+    {'title': "Title Two", 'author': "Author Two", 'category': "science"},
+    {'title': "Title Three", 'author': "Author Three", 'category': "history"},
+    {'title': "Title Four", 'author': "Author Four", 'category': "math"},
+    {'title': "Title Five", 'author': "Author Five", 'category': "math"},
+]
+
+2. Give an able to : Create, Read, Update, Delete books.
+
+3. Send request which give server a commands to:
+Create -> POST
+Read   -> GET
+Update -> PUT
+Delete -> DELETE
