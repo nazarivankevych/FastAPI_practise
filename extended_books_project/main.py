@@ -1,4 +1,9 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
+import logging
+
+from validators import BookRequest
+
+logging.basicConfig(format='%(process)d-%(levelname)s-%(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.WARNING)
 
 app = FastAPI()
 
@@ -34,5 +39,16 @@ async def read_all_books():
 
 
 @app.post("/create-book")
-async def create_book(book_request=Body()):
-    BOOKS.append(book_request)
+async def create_book(book_request: BookRequest):
+    new_book = Book(**book_request.dict())
+    # logging.info(type(new_book))
+    BOOKS.append(find_book_id(new_book))
+
+
+def find_book_id(book: Book):
+    book.id = 1 if len(BOOKS) == 0 else BOOKS[-1].id + 1
+    # if len(BOOKS) > 0:
+    #     book.id = BOOKS[-1].id + 1
+    # else:
+    #     book.id = 1
+    return book
