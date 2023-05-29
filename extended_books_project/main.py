@@ -1,9 +1,31 @@
-from fastapi import FastAPI
-from fastapi import Body
-
-from constants import BOOKS
+from fastapi import FastAPI, Body
 
 app = FastAPI()
+
+
+class Book:
+    id: int
+    title: int
+    author: str
+    description: str
+    rating: int
+
+    def __init__(self, id, title, author, description, rating):
+        self.id = id
+        self.title = title
+        self.author = author
+        self.description = description
+        self.rating = rating
+
+
+BOOKS = [
+    Book(1, "Computer Science Pro", 'codingwithnazar', 'A very nice book!', 5),
+    Book(2, "Statistics Science Pro", 'codingwithnazar', 'A use fool book!', 5),
+    Book(3, "Python for beginners", 'codingwithnazar', 'Nice book to start coding on Python!', 5),
+    Book(4, "Math for scientist", 'codingwithnazar', 'Science in Python', 1),
+    Book(5, "Use this modules for automation", 'codingwithnazar', 'Automate routine tasks with Python', 2),
+    Book(6, "Test with Python", 'codingwithnazar', 'Automate routine tasks with Python', 3)
+]
 
 
 @app.get("/books")
@@ -11,33 +33,6 @@ async def read_all_books():
     return BOOKS
 
 
-@app.get("/books/{book_to_return}/")
-async def read_author_category_by_query(book_title: str, book_author: str, book_category: str):
-    books_to_return = []
-    for book in BOOKS:
-        if book.get('title').casefold() == book_title.casefold() or \
-            book.get('author').casefold() == book_author.casefold() or \
-                book.get('category').casefold() == book_category.casefold():
-            books_to_return.append(book)
-
-    return books_to_return
-
-
-@app.post("/books/create_book")
-async def create_book(new_book=Body()):
-    BOOKS.append(new_book)
-
-
-@app.put("/books/update_book")
-async def update_book(updated_book=Body()):
-    for index in range(len(BOOKS)):
-        if BOOKS[index].get('title').casefold() == updated_book.get('title').casefold():
-            BOOKS[index] = updated_book
-
-
-@app.delete("/books/delete_book/{book_title}")
-async def delete_book(book_title: str):
-    for i in range(len(BOOKS)):
-        if BOOKS[i].get('title').casefold() == book_title.casefold():
-            BOOKS.pop(i)
-            break
+@app.post("/create-book")
+async def create_book(book_request=Body()):
+    BOOKS.append(book_request)
