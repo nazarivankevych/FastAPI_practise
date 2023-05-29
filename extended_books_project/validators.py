@@ -8,3 +8,13 @@ class BookRequest(BaseModel):
     author: str = Field(min_length=1)
     description: str = Field(min_length=1, max_length=100)
     rating: float = Field(gt=-1, lt=6)
+
+    class Config:
+        schema_extra = {
+            'example': {
+                'title': 'A new book',
+                'author': 'codingwithnazar',
+                'description': 'A new description of a book',
+                'rating': 5
+            }
+        }
