@@ -14,22 +14,24 @@ class Book:
     author: str
     description: str
     rating: int
+    published_date: int
 
-    def __init__(self, id, title, author, description, rating):
+    def __init__(self, id, title, author, description, rating, published_date):
         self.id = id
         self.title = title
         self.author = author
         self.description = description
         self.rating = rating
+        self.published_date = published_date
 
 
 BOOKS = [
-    Book(1, "Computer Science Pro", 'codingwithnazar', 'A very nice book!', 5),
-    Book(2, "Statistics Science Pro", 'codingwithnazar', 'A use fool book!', 5),
-    Book(3, "Python for beginners", 'codingwithnazar', 'Nice book to start coding on Python!', 5),
-    Book(4, "Math for scientist", 'codingwithnazar', 'Science in Python', 1),
-    Book(5, "Use this modules for automation", 'codingwithnazar', 'Automate routine tasks with Python', 2),
-    Book(6, "Test with Python", 'codingwithnazar', 'Automate routine tasks with Python', 3)
+    Book(1, "Computer Science Pro", 'codingwithnazar', 'A very nice book!', 5, 2005),
+    Book(2, "Statistics Science Pro", 'codingwithnazar', 'A use fool book!', 5, 2007),
+    Book(3, "Python for beginners", 'codingwithnazar', 'Nice book to start coding on Python!', 5, 2010),
+    Book(4, "Math for scientist", 'codingwithnazar', 'Science in Python', 1, 2012),
+    Book(5, "Use this modules for automation", 'codingwithnazar', 'Automate routine tasks with Python', 2, 2012),
+    Book(6, "Test with Python", 'codingwithnazar', 'Automate routine tasks with Python', 3, 2012)
 ]
 
 
@@ -38,7 +40,7 @@ async def read_all_books():
     return BOOKS
 
 
-@app.get("/books/{book_id}")
+@app.get("/books/{book_id}/")
 async def read_book(book_id: int):
     for book in BOOKS:
         if book.id == book_id:
@@ -50,6 +52,15 @@ async def read_book_by_rating(book_rating: int):
     books_to_return = []
     for book in BOOKS:
         if book.rating == book_rating:
+            books_to_return.append(book)
+    return books_to_return
+
+
+@app.get("/books/{published_date}/")
+async def get_book_date(published_date: int):
+    books_to_return = []
+    for book in BOOKS:
+        if book.published_date == published_date:
             books_to_return.append(book)
     return books_to_return
 
@@ -68,3 +79,18 @@ def find_book_id(book: Book):
     # else:
     #     book.id = 1
     return book
+
+
+@app.put("/books/update_book")
+async def update_book(book: BookRequest):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].id == book.id:
+            BOOKS[i] = book
+
+
+@app.delete("/books/{book_id}")
+async def delete_book(book_id: int):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].id == book_id:
+            BOOKS.pop(i)
+            break
