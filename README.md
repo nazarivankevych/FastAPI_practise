@@ -17,7 +17,7 @@ I have created a new projects with using API:
 - [x] [extended_book_API]()
 
 Also projects with REST API:
-- [ ] [FastAPI_practise]()
+- [...] [todos_FastAPI]()
 - [ ] [FastAPI_practise]()
 - [ ] [FastAPI_practise]()
 - [ ] [FastAPI_practise]()
