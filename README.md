@@ -17,8 +17,8 @@ I have created a new projects with using API:
 - [x] [extended_book_API]()
 
 Also projects with REST API:
-- [...] [todos_FastAPI]()
-- [ ] [FastAPI_practise]()
+- [x] [todos_FastAPI]()
+- [...] [Authentication_authorization]()
 - [ ] [FastAPI_practise]()
 - [ ] [FastAPI_practise]()
 
