@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 # link to database
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./todoapp.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite:///tables/todoapp.db'
 # make connection with sqlalchemy
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False})
 # create a session

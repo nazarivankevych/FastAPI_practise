@@ -13,8 +13,8 @@ from routers import auth, todos
 
 
 app = FastAPI()
-
-models.Base.metadata.create_all(bind=engine)
+# Uncomment if need to create a new tables
+# models.Base.metadata.create_all(bind=engine)
 
 app.include_router(auth.router)
 app.include_router(todos.router)

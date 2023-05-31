@@ -1,12 +1,10 @@
 from typing import Annotated
-
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.params import Path
 from starlette import status
 
 from database import SessionLocal
-
 from models import Todos
 from validators import TodoRequest
 
@@ -19,7 +17,7 @@ def get_db():
     try:
         yield db
     except ConnectionError as e:
-        print(f"Ups, something went wrong: {e}")
+        print(f"Ups, connection from todos went wrong: {e}")
     finally:
         db.close()
 
