@@ -3,11 +3,9 @@ Add, remove, change, make prioritizations of todos.
 - create todos
 - make changes
 - delete todos
-- mark them
 - create a database for todos
 - validations
 """
-import json
 from typing import Annotated
 
 from pydantic import BaseModel, Field
@@ -20,10 +18,14 @@ from starlette import status
 from models import Todos
 from database import engine, SessionLocal
 
+from routers import auth
+
 
 app = FastAPI()
 # Use if you do not have DB
 # models.Base.metadata.create_all(bind=engine)
+# Create a router
+app.include_router(auth.router)
 
 
 def get_db():
