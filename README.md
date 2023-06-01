@@ -18,7 +18,8 @@ I have created a new projects with using API:
 
 Also projects with REST API:
 - [x] [todos_FastAPI]()
-- [ ] [Authentication_practise]()
+- [x] [Authentication_practise]()
+- [x] [Authentication_authorization]()
 - [ ] [FastAPI_practise]()
 - [ ] [FastAPI_practise]()
 
