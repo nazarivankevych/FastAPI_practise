@@ -8,18 +8,21 @@ from starlette import status
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
+from dotenv import load_dotenv, dotenv_values
 
 from validators import CreateUserRequest, Token
 from models import Users
 from database import SessionLocal
 
+load_dotenv()
+secrets = dotenv_values(".env")
+SECRET_KEY = secrets['SECRET_KEY']
+ALGORITHM = secrets['ALGORITHM']
+
 router = APIRouter(
     prefix='/auth',
     tags=['auth']
 )
-
-SECRET_KEY = "c9aee336cf57d939705ef2e76b7197cd98f1358e00e390200960dbdecff08106"
-ALGORITHM = 'HS256'
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl='auth/token')
