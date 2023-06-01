@@ -15,10 +15,10 @@ uvicorn main:app --reload
 I have created a new projects with using API:
 - [x] [book_API]()
 - [x] [extended_book_API]()
-
-Also projects with REST API:
 - [x] [todos_FastAPI]()
 - [x] [Authentication_authorization]()
+
+Also projects with REST API:
 - [ ] [FastAPI_practise]()
 - [ ] [FastAPI_practise]()
 
