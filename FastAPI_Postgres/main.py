@@ -1,0 +1,20 @@
+"""
+Authentication and authorization
+- create endpoint
+- make changes
+- create a database for user
+- validations
+"""
+from fastapi import FastAPI
+
+from project_config.routers import auth, todos, admin, users
+
+
+app = FastAPI()
+# Uncomment if need to create a new tables
+# models.Base.metadata.create_all(bind=engine)
+
+app.include_router(auth.router)
+app.include_router(todos.router)
+app.include_router(admin.router)
+app.include_router(users.router)
