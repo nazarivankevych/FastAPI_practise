@@ -4,9 +4,9 @@ from fastapi import APIRouter, HTTPException, Depends
 from starlette import status
 from passlib.context import CryptContext
 
-from project_config.database import SessionLocal
-from project_config.models import Users
-from project_config.validators import UserVerification
+from database import SessionLocal
+from models import Users
+from validators import UserVerification
 from .auth import get_current_user
 
 

@@ -4,8 +4,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from fastapi.params import Path
 from starlette import status
 
-from project_config.database import SessionLocal
-from project_config.models import Todos
+from database import SessionLocal
+from models import Todos
 from .auth import get_current_user
 
 

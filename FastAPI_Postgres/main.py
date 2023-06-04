@@ -7,8 +7,8 @@ Authentication and authorization
 """
 from fastapi import FastAPI
 
-from project_config.routers import auth, todos, admin, users
-
+from routers import auth, todos
+from routers import admin, users
 
 app = FastAPI()
 # Uncomment if need to create a new tables

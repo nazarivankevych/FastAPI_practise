@@ -10,9 +10,9 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
 from dotenv import load_dotenv, dotenv_values
 
-from project_config.validators import CreateUserRequest, Token
-from project_config.models import Users
-from project_config.database import SessionLocal
+from validators import CreateUserRequest, Token
+from models import Users
+from database import SessionLocal
 
 load_dotenv()
 secrets = dotenv_values(".env")

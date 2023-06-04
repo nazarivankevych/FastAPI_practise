@@ -1,4 +1,4 @@
-name: recipe_api
+name: FastAPI_Postgres
 channels:
   - defaults
 dependencies:
