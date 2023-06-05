@@ -1,6 +1,6 @@
 INFO:     Will watch for changes in these directories: ['C:\\Users\\nivanke\\Documents\\FastAPI_cource\\FastAPI_practise\\todo-FullStack']
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [4900] using WatchFiles
+INFO:     Started reloader process [17356] using WatchFiles
 Process SpawnProcess-1:
 Traceback (most recent call last):
   File "C:\Users\nivanke\.conda\envs\todo-FullStack\lib\multiprocessing\process.py", line 314, in _bootstrap
@@ -31,7 +31,7 @@ Traceback (most recent call last):
   File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
   File "<frozen importlib._bootstrap_external>", line 883, in exec_module
   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "C:\Users\nivanke\Documents\FastAPI_cource\FastAPI_practise\todo-FullStack\.\TodoApp\main.py", line 5, in <module>
-    from routers import todos
-ModuleNotFoundError: No module named 'routers'
-INFO:     Stopping reloader process [4900]
+  File "C:\Users\nivanke\Documents\FastAPI_cource\FastAPI_practise\todo-FullStack\.\TodoApp\main.py", line 2, in <module>
+    import models
+ModuleNotFoundError: No module named 'models'
+INFO:     Stopping reloader process [17356]
