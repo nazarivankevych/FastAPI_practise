@@ -107,7 +107,6 @@ async def edit_todo_commit(
     if user is None:
         return RedirectResponse(url="/auth", status_code=status.HTTP_302_FOUND)
     todo_model = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
-    print(f"==============={todo_model}=================")
 
     todo_model.title = title
     todo_model.description = description
