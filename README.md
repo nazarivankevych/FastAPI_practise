@@ -12,13 +12,18 @@ conda env create -n ENVNAME --file requirements.yml
 ```bash
 uvicorn main:app --reload
 ```
+## Docker compose setuping, if you would like to use MySQL Database instead of SQLite
+
+```bash
+docker-compose -f docker-compose.yml up
+```
+
 I have created a new projects with using API:
 - [x] [book_API]()
 - [x] [extended_book_API]()
 - [x] [todos_FastAPI]()
 
 Also projects with REST API:
-- [ ] [FastAPI_practise]()
-- [ ] [FastAPI_practise]()
+- [x] [FastAPI_FullStack Todo Application]()
 
 Created by [Nazar Ivankevych]
