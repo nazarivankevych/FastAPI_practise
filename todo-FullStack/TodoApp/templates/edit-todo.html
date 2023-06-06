@@ -24,14 +24,14 @@
           <label>Priority</label>
           <select class="form-control" name="priority">
             <option {% if todo.priority == 1 %} selected="selected" {% endif %}>1</option>
-            <option {%  if todo.priority == 2 %} selected="selected" {% endif %}>2</option>
+            <option {% if todo.priority == 2 %} selected="selected" {% endif %}>2</option>
             <option {% if todo.priority == 3 %} selected="selected" {% endif %}>3</option>
             <option {% if todo.priority == 4 %} selected="selected" {% endif %}>4</option>
             <option {% if todo.priority == 5 %} selected="selected" {% endif %}>5</option>
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Edit</button>
-        <button onclick="window.location.href='/todos/delete/{{todo.id}}'" type="submit" class="btn btn-danger">Delete</button>
+        <button onclick="window.location.href='/todos/delete/{{todo.id}}'" type="button" class="btn btn-danger">Delete</button>
       </form>
     </div>
   </div>
