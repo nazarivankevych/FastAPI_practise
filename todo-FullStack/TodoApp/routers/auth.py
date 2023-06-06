@@ -21,20 +21,17 @@ from fastapi.templating import Jinja2Templates
 
 load_dotenv()
 
+models.Base.metadata.create_all(bind=engine)
+router = APIRouter(
+    prefix="/auth", tags=["auth"], responses={401: {"user": "Not authorized"}}
+)
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 
 templates = Jinja2Templates(directory="templates")
-
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-models.Base.metadata.create_all(bind=engine)
-
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl="token")
-
-router = APIRouter(
-    prefix="/auth", tags=["auth"], responses={401: {"user": "Not authorized"}}
-)
 
 
 class LoginForm:
