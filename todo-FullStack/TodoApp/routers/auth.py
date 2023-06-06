@@ -14,20 +14,24 @@ from database import SessionLocal, engine
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
-from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-load_dotenv()
+# load_dotenv()
 
 models.Base.metadata.create_all(bind=engine)
 router = APIRouter(
     prefix="/auth", tags=["auth"], responses={401: {"user": "Not authorized"}}
 )
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
+# SECRET_KEY = os.getenv("SECRET_KEY")
+# ALGORITHM = os.getenv("ALGORITHM")
+
+SECRET_KEY = "8a23e90096bd23de3ff7a14dfe21bd076792d425dc7603f729a3ea58a62758fc"
+ALGORITHM = "HS256"
 
 templates = Jinja2Templates(directory="templates")
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
